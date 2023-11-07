@@ -48,3 +48,51 @@ function consultarPrecio() {
     } 
 }
 
+/* agregar o quitar items de arrays
+function quitarPais() {
+
+    let paisAquitar = prompt("Ingresa el país a retirar del array:")
+
+    let idx = paises.indexOf(paisAquitar)
+
+ 
+
+    if (idx > -1) {
+
+        let paisQuitado = paises.splice(idx, 1)
+
+        console.log("Se ha quitado a", paisQuitado, "del array.")
+
+    } else {
+
+        console.warn("No se encontró el país indicado.")
+
+    }
+
+    cargarPaises()
+
+}
+
+const paises = ['Argentina', 'Uruguay', 'Chile', 'Venezuela', 'Surinam', 'Brasil', 'Ecuador', 'Colombia']
+
+
+function agregarPais() {
+
+    let nuevoPais = prompt("Ingresa el nuevo país a agregar:")
+
+ 
+
+    if (paises.includes(nuevoPais)) {
+
+        console.warn("El país ya existe en el array. Evitamos duplicarlo.")
+
+    } else {
+
+        paises.push(nuevoPais)
+
+        cargarPaises()
+
+    }
+
+}
+*/
