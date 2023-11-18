@@ -1,5 +1,5 @@
-function precioTarjeta(codigo){
-    switch(codigo) {
+function precioTarjeta(modelo){
+    switch(modelo) {
         case 12:
             console.log("Precio del iPhone 12 con tarjeta:")
             for (let i=1; i<= 6; i++){
@@ -48,51 +48,43 @@ function consultarPrecio() {
     } 
 }
 
-/* agregar o quitar items de arrays
-function quitarPais() {
+const carrito = []
 
-    let paisAquitar = prompt("Ingresa el país a retirar del array:")
+const celulares = [{imagen: '📱', codigo: 1, nombre: 'iPhone 11', precio: 500},
+                 {imagen: '📱', codigo: 2, nombre: 'iPhone 11 pro', precio: 600},
+                 {imagen: '📱', codigo: 3, nombre: 'iPhone 12', precio: 600},
+                 {imagen: '📱', codigo: 4, nombre: 'iPhone 12 pro', precio: 700},
+                 {imagen: '📱', codigo: 5, nombre: 'iPhone 13', precio: 700},
+                 {imagen: '📱', codigo: 6, nombre: 'iPhone 13 pro', precio: 800},
+                 {imagen: '📱', codigo: 7, nombre: 'iPhone 14', precio: 800},
+                 {imagen: '📱', codigo: 8, nombre: 'iPhone 14 pro', precio: 900},
+                 {imagen: '📱', codigo: 9, nombre: 'iPhone 15', precio: 900},
+                 {imagen: '📱', codigo: 10, nombre: 'iPhone 15 pro', precio: 1000}]
 
-    let idx = paises.indexOf(paisAquitar)
-
- 
-
-    if (idx > -1) {
-
-        let paisQuitado = paises.splice(idx, 1)
-
-        console.log("Se ha quitado a", paisQuitado, "del array.")
-
-    } else {
-
-        console.warn("No se encontró el país indicado.")
-
-    }
-
-    cargarPaises()
-
+function buscarCelular(codigo) {
+    let celularSeleccionado = celulares.find((celular)=> celular.codigo === codigo )
+    return celularSeleccionado
 }
 
-const paises = ['Argentina', 'Uruguay', 'Chile', 'Venezuela', 'Surinam', 'Brasil', 'Ecuador', 'Colombia']
+function comprar() {
+    let codigo = prompt("Ingresa el código del iPhone\n(el cód. numérico del HTML)")
+    let celularElegido = buscarCelular(parseInt(codigo))
 
-
-function agregarPais() {
-
-    let nuevoPais = prompt("Ingresa el nuevo país a agregar:")
-
- 
-
-    if (paises.includes(nuevoPais)) {
-
-        console.warn("El país ya existe en el array. Evitamos duplicarlo.")
+    if (celularElegido !== undefined) {
+        
+        carrito.push(celularElegido)
+        alert(celularElegido.nombre + " se agregó al carrito.")
+        let respuesta = confirm("¿Deseas agregar otro celular?")
+        if (respuesta === true) {
+            comprar()
+        } else {
+            const shop = new Compra(carrito)
+            let subtotal = shop.obtenerSubtotal()
+            console.table(carrito)
+            console.log("🛍️ El costo de tu compra es: $", subtotal, "\nMuchas gracias por elegirnos.")
+        }
 
     } else {
-
-        paises.push(nuevoPais)
-
-        cargarPaises()
-
+        alert("⛔️ Error en el código de prenda ingresado.\nRefresca para comenzar de nuevo.")
     }
-
 }
-*/
