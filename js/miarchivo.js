@@ -48,6 +48,17 @@ function consultarPrecio() {
     } 
 }
 
+class Compra {  
+    constructor(carritoDeCompras) {
+        this.carrito = carritoDeCompras
+    }
+    obtenerSubtotal() {
+        if (this.carrito.length > 0) { 
+            return this.carrito.reduce((acumulador, celular)=> acumulador + celular.precio, 0)
+        }
+    }
+}
+
 const carrito = []
 
 const celulares = [{imagen: '📱', codigo: 1, nombre: 'iPhone 11', precio: 500},
