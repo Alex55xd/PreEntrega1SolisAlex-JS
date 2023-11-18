@@ -67,7 +67,7 @@ function buscarCelular(codigo) {
 }
 
 function comprar() {
-    let codigo = prompt("Ingresa el código del iPhone\n(el cód. numérico del HTML)")
+    let codigo = prompt("Ingresa el código del iPhone")
     let celularElegido = buscarCelular(parseInt(codigo))
 
     if (celularElegido !== undefined) {
@@ -78,8 +78,13 @@ function comprar() {
         if (respuesta === true) {
             comprar()
         } else {  
-          console.log("terminado")
+            console.clear()             // limpia la consola JS de DevTools
+            const shop = new Compra(carrito)
+            let subtotal = shop.obtenerSubtotal()
+            console.table(carrito)
+            console.log("🛍️ El costo de tu compra es: $", subtotal, "\nMuchas gracias por elegirnos.")
         }
+        
 
     } else {
         alert("⛔️ Error en el código de prenda ingresado.\nRefresca para comenzar de nuevo.")
