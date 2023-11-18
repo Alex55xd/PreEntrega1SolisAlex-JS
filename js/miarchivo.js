@@ -77,11 +77,8 @@ function comprar() {
         let respuesta = confirm("¿Deseas agregar otro celular?")
         if (respuesta === true) {
             comprar()
-        } else {
-            const shop = new Compra(carrito)
-            let subtotal = shop.obtenerSubtotal()
-            console.table(carrito)
-            console.log("🛍️ El costo de tu compra es: $", subtotal, "\nMuchas gracias por elegirnos.")
+        } else {  
+          console.log("terminado")
         }
 
     } else {
